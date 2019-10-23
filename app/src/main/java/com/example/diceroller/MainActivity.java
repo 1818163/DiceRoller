@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+/*
     public void on_button_click(View view) {
 
         TextView tv = this.findViewById(R.id.numberTextView);
@@ -65,5 +65,44 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(Integer.toString(number));
 
     }
+*/
+
+    int score = 0;
+
+    public void on_button_click(View view)
+    {
+
+        TextView tv = this.findViewById(R.id.numbertextView);
+        TextView tv2 = this.findViewById(R.id.inputNumberValue);
+        TextView tv3 = this.findViewById(R.id.correcttextView);
+        TextView tv4 = this.findViewById(R.id.scoretextView);
+
+        Random r = new Random();
+        int number = r.nextInt(6);
+        tv.setText(Integer.toString(number));
+        int foundval = Integer.parseInt(tv2.getText().toString());
+
+
+        if (foundval >0 || foundval <7)
+        {
+
+            if (foundval==number)
+            {
+                tv3.setText("Congratulations!");
+                score = score+1;
+            }
+            else
+            {
+                tv3.setText("Incorrect!");
+            }
+        }
+        else {
+        }
+
+        tv4.setText(String.valueOf(score));
+
+    }
+
+
 
 }
